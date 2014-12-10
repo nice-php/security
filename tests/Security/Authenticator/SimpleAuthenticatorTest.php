@@ -23,7 +23,7 @@ class SimpleAuthenticatorTest extends \PHPUnit_Framework_TestCase
         $request->attributes->set('username', 'user');
         $request->attributes->set('password', 'pass');
         
-        $authenticator = new SimpleAuthenticator('user', 'pass');
+        $authenticator = new SimpleAuthenticator('user', password_hash('pass', PASSWORD_DEFAULT));
         
         $this->assertTrue($authenticator->authenticate($request));
     }

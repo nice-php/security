@@ -46,6 +46,6 @@ class SimpleAuthenticator implements AuthenticatorInterface
     public function authenticate(Request $request)
     {
         return $request->get('username') === $this->username
-            && $request->get('password') === $this->password;
+            && password_verify($request->get('password'), $this->password);
     }
 }

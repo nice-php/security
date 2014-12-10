@@ -3,6 +3,8 @@ security
 
 Simple security component for Nice applications.
 
+[View the full documentation online](http://niceframework.com/extensions/security).
+
 
 Installation
 ------------
@@ -33,15 +35,17 @@ Full source code to `hashpass.php`:
 ```php
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+(@include_once __DIR__ . '/../vendor/autoload.php') || @include_once __DIR__ . '/../../../autoload.php';
 
 $in = fopen('php://stdin', 'r');
 
 echo "Enter password to hash: ";
 
 $pass = fgets($in);
+// trim newline
+$pass = substr($pass, 0, strlen($pass) - 1);
 
-$hash = password_hash(substr($pass, 0, strlen($pass) - 1), PASSWORD_DEFAULT);
+$hash = password_hash($pass, PASSWORD_DEFAULT);
 
 echo "Hashed result:\n";
 echo $hash."\n\n";

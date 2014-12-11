@@ -3,7 +3,7 @@ security
 
 Simple security component for Nice applications.
 
-[View the full documentation online](http://niceframework.com/extensions/security).
+[View the full documentation online](http://niceframework.com/nice/latest/extensions/security).
 
 
 Installation
